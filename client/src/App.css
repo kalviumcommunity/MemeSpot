@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Livvic&display=swap');
+
+.App{
+  font-family: 'Lily Script One', cursive;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background: #FFFEFE;
+}
+
+.circles{
+  position: absolute;
+  width: 30rem;
+  height: 20rem;
+}
