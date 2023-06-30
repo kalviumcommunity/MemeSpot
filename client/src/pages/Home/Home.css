@@ -1,0 +1,10 @@
+.homeContainer{
+    position: relative;
+    display: grid;
+    grid-template-columns: 18rem auto 24rem;
+    gap: 1rem;
+}
+.sections{
+    border: 1px solid black;
+    height: 100%;
+}
