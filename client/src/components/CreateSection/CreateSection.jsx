@@ -5,7 +5,7 @@ import UploadFileCard from '../UploadFileCard/UploadFileCard'
 
 const CreateSection = () => {
   return (
-    <div>   
+    <div className='createSection'>   
         <UploadFileCard/> 
         <FollowersCard/>
     </div>

@@ -6,7 +6,8 @@
     gap: 1rem;
     width: 95%;
     height: 100%;
-    margin-top: 50%;
+    margin-top: 40%;
+    margin-bottom: 1rem;
     overflow-x: clip;
     box-shadow: 3px 5px 5px 3px black;
 }

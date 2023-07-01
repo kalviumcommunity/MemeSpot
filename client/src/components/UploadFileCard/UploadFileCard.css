@@ -1,31 +1,32 @@
 .uploadFileCard{
     width: 100%;
-    height: 42%;
-    /* margin-top: 150%; */
     border-radius: 0.5rem;
     gap: 1rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    margin-top: 1rem;
     background: white;
     justify-content: center;
     font-size: 13px;
     border: 5px solid black;
-    padding: 10px 10px 10px 10px;
+    /* padding: 10px 10px 10px 10px; */
 }
 .imageSection{
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
+    /* padding-top: 3.4rem; */
     gap: 1rem; 
-    width: 106%;
-    margin: -146px 0px 10px -10px;
+    width: 100%;
+    /* margin: -146px 0px 10px -10px; */
 }
 .imageSection>img:nth-of-type(1){
     width: 100%;
     height: 50%;
+    /* margin-top: 1rem; */
     border-top-left-radius: 1.2rem;
     border-top-right-radius: 1.2rem;
     border-bottom: 5px solid black;
@@ -35,13 +36,16 @@
     height: 7rem;
     position: absolute;
     border-radius: 50%;
+    align-items: center;
     border: 5px solid black;
-    bottom: 1.5rem;
+    /* bottom: 1.7rem; */
+    top: 5rem;
 }
 .uploadFileTitle{
-    margin: -37px 0px 0px 81px;
+    margin-top: -6rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 10px;
 }
@@ -51,7 +55,7 @@
 }
 .createBar{
     height: 30px;
-    width: 288px;
+    width: 90%;
     border-radius: 20px;
     margin: 0px 0px 0px 0px;
     border: 4px solid black;
@@ -60,8 +64,9 @@
 .uploadButtons{
     display: flex;
     width: 100%;    
-    padding-right: 60px;
+    /* padding-right: 60px; */
     justify-content: space-around;
+    padding-bottom: 10px;
 }
 .uploadButtons button{
     height: 30px;
@@ -75,4 +80,21 @@
     border: 3px solid #783937;
     color: #783937;
     cursor: pointer;
+}
+.shareButton{
+    height: 30px;
+    width: 90px;
+    border-radius: 10px;
+    border: 3px solid black;
+    font-size: 15px;
+    background: #783937;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.shareButton:hover{
+    border: 3px solid #783937;
+    color: #783937;
+    cursor: pointer;
+    background: white;
 }
