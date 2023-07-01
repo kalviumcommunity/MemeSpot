@@ -1,7 +1,7 @@
 .homeContainer{
     position: relative;
     display: grid;
-    grid-template-columns: 18rem auto 24rem;
+    grid-template-columns: 19rem auto 24rem;
     gap: 1rem;
 }
 .sections{
