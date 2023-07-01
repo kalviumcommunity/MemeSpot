@@ -19,6 +19,7 @@ const UploadFileCard = () => {
             <button>Photos</button>
             <button>Videos</button>
         </div>
+        <button className='shareButton'>Share</button>
     </div>
   )
 }
