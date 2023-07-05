@@ -9,7 +9,7 @@
 }
 
 .circles{
-  position: absolute;
+  position: fixed;
   width: 30rem;
   height: 20rem;
 }
@@ -30,4 +30,8 @@
   background-color: white;
   color: #783937;
   border: 4px solid #783937;
+}
+
+::-webkit-scrollbar{
+  display: none;
 }
