@@ -1,18 +1,19 @@
 import React from 'react'
-import ProfileLeft from '../../components/ProfileLeft/ProfileLeft'
 import './Profile.css'
-import ProfileCard from '../../components/ProfileCard/ProfileCard.jsx'
-import PostSection from '../../components/PostSection/PostSection.jsx'
 import InfoCard from '../../components/InfoCard/InfoCard'
 import LogoSearch from '../../components/LogoSearch/LogoSearch.jsx'
+import PostShare from '../../components/PostShare/PostShare'
+import FollowerSection from '../../components/FollowerSection/FollowerSection'
+import MainProfileCard from '../../components/MainProfileCard/MainProfileCard'
 
 const Profile = () => {
   return (
     <div className='profile'>
-      <ProfileLeft/>
+      <FollowerSection/>
         <div className='profile-center'>
-          <ProfileCard/>
-          <PostSection/>
+          <MainProfileCard/>
+          <PostShare/>
+          {/* <PostSection/> */}
         </div>
         <div className='profileRight'>
           <LogoSearch/>
