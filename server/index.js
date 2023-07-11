@@ -1,6 +1,8 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import bodyParser from 'body-parser'
+import Connection from './Connection/Connection.js'
+import AuthRoutes from './Routes/AuthRoute.js'
 
 dotenv.config()
 const app = express()
@@ -12,4 +14,8 @@ app.use(bodyParser.urlencoded({limit: '30mb', extended: true}))
 
 app.listen(port, ()=>{
     console.log(`Server: Running on port ${port}`)
-})
+}) 
+
+Connection()
+
+app.use('/auth/', AuthRoutes)
