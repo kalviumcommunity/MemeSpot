@@ -34,13 +34,13 @@ const PostShare = () => {
             ref={imageRef}
             onChange={handleChange}/>
         </div>
+      </div>
       {image && (
         <div className="previewImage">
           <UilTimes/>
         </div>
       )
       } 
-      </div>
     </div>
   )
 }

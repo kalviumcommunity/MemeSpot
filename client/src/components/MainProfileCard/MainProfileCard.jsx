@@ -15,7 +15,7 @@ const MainProfileCard = () => {
             <span>MemeCreator</span>
         </div>
         <div className="followStatus">
-            <hr />
+            <hr/>
             <div>
                 <div className='follow'>
                     <span>2.5M</span>
@@ -27,11 +27,8 @@ const MainProfileCard = () => {
                     <span>Following</span>
                 </div>
             </div>
-            <hr />
+            <hr/>
         </div>
-        <span>
-            My Profile
-        </span>
     </div>
   )
 }

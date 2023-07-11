@@ -13,7 +13,6 @@ const Profile = () => {
         <div className='profile-center'>
           <MainProfileCard/>
           <PostShare/>
-          {/* <PostSection/> */}
         </div>
         <div className='profileRight'>
           <LogoSearch/>

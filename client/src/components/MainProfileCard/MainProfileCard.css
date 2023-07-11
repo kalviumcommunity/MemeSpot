@@ -4,13 +4,13 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    /* width: 100%; */
     width: 100%;
     height: 100%;
     margin-top: 40%;
     margin-bottom: 1rem;
     overflow-x: clip;
     box-shadow: 3px 5px 5px 3px black;
+    padding-bottom: 2rem;
 }
 .profileNames{
     margin-top: 3.5rem;
