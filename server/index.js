@@ -2,6 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import bodyParser from 'body-parser'
 import Connection from './Connection/Connection.js'
+import AuthRoutes from './Routes/AuthRoute.js'
 
 dotenv.config()
 const app = express()
@@ -16,3 +17,5 @@ app.listen(port, ()=>{
 }) 
 
 Connection()
+
+app.use('/auth/', AuthRoutes)
