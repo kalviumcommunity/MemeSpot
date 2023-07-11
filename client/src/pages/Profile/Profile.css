@@ -7,7 +7,7 @@
     padding-left: 2rem;
     gap: 1rem;
 }
-.profile-center{
+.profileCenter{
     display: flex;
     flex-direction: column;
     gap: 1rem;

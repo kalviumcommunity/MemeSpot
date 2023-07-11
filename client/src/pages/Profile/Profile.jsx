@@ -10,7 +10,7 @@ const Profile = () => {
   return (
     <div className='profile'>
       <FollowerSection/>
-        <div className='profile-center'>
+        <div className='profileCenter'>
           <MainProfileCard/>
           <PostShare/>
         </div>
