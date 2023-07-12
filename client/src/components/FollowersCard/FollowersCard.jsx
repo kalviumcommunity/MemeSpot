@@ -3,13 +3,13 @@ import './FollowersCard.css'
 import { Followers } from '../../Data/FollowersData'
 
 const FollowersCard = () => {
-  return (
+return (
     <div className='followerCard'>
         <h3>Who is following you ?</h3>
         {
             Followers.map((followers,id)=>{
                 return(
-                    <div className='follower'>
+                    <div className='follower' key={id}>
                         <div>
                             <img src={followers.img} alt="" className='followerImg' />
                             <div className="name">
@@ -25,7 +25,7 @@ const FollowersCard = () => {
             })
         }
     </div>
-  )
+)
 }
 
 export default FollowersCard

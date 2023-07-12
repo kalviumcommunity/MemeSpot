@@ -1,10 +1,11 @@
 import {Modal, useMantineTheme} from '@mantine/core'
+import './ProfileModal.css'
 
 const ProfileModal = ({modalOpened, setModalOpened}) => {
     const theme = useMantineTheme()
 
     return(
-        <Modal
+        <Modal  
             overlayColor={
                 theme.colorScheme === "dark"
                     ? theme.colors.dark[9]
@@ -19,18 +20,18 @@ const ProfileModal = ({modalOpened, setModalOpened}) => {
             <form className='infoForm'>
                 <h3>Your Info</h3>
 
-                <div>
-                    <input type="text" className='infoInput' name='FirstName' placeholder='First Name'/>
-                    <input type="text" className='infoInput' name='LastName' placeholder='Last Name'/>
-                    <input type="text" className='infoInput' name='livesIN' placeholder='Lives In'/>
-                    <input type="text" className='infoInput' placeholder='RelationShip Status'/>
-                    <input type="text" className='infoInput' name='Country' placeholder='Country'/>
+                <div className='textfields'>
+                    <input type="text" className='infoInput' name='FirstName' placeholder='First Name' autoComplete='off'/>
+                    <input type="text" className='infoInput' name='LastName' placeholder='Last Name' autoComplete='off'/>
+                    <input type="text" className='infoInput' name='livesIN' placeholder='Lives In' autoComplete='off'/>
+                    <input type="text" className='infoInput' placeholder='RelationShip Status' autoComplete='off'/>
+                    <input type="text" className='infoInput' name='Country' placeholder='Country' autoComplete='off'/>
                 </div>
 
-                <div>
-                    Profile Image
+                <div className='imageUploadSection'>
+                    <p>Profile Image</p>
                     <input type="file" name="profileImg"/>
-                    Cover Image
+                    <p>Cover Image</p>
                     <input type="file" name='coverImg' />
                 </div>
 

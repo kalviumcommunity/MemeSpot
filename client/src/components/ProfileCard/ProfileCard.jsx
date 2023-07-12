@@ -4,7 +4,7 @@ import coverPhoto from '../../images/Crushed Paper.jpg'
 import profilePhoto from '../../images/ProfilePhotojpg.jpg'
 
 const ProfileCard = () => {
-  return (
+return (
     <div className='profileCard'>
         <div className="profileImages">
             <img src={coverPhoto} alt="coverPhoto" />
@@ -33,7 +33,7 @@ const ProfileCard = () => {
             My Profile
         </span>
     </div>
-  )
+)
 }
 
 export default ProfileCard
