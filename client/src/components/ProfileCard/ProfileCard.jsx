@@ -2,6 +2,7 @@ import React from 'react'
 import './ProfileCard.css'
 import coverPhoto from '../../images/Crushed Paper.jpg'
 import profilePhoto from '../../images/ProfilePhotojpg.jpg'
+import { Link } from 'react-router-dom'
 
 const ProfileCard = () => {
 return (
@@ -30,7 +31,7 @@ return (
             <hr />
         </div>
         <span>
-            My Profile
+            <Link to="/profile">My Profile</Link>
         </span>
     </div>
 )

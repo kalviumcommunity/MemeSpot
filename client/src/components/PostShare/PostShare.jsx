@@ -16,7 +16,7 @@ const PostShare = () => {
     }
     console.log('Working till this point')
   }
-
+  
   return (
     <div className='postShare'>
       <div style={{fontSize: 20}}>

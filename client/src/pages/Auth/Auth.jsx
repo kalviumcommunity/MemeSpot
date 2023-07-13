@@ -51,8 +51,8 @@ const Auth = () => {
     }
 return (
     <div className='Auth'>
-        {/* <Login/> */}
-        <SignUp/>
+        <Login/>
+        {/* <SignUp/> */}
         <div className='names'>
             <img src={Logo} alt="Logo" />
             <div className='heading'>
