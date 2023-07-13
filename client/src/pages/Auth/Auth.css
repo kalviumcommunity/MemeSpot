@@ -1,0 +1,93 @@
+.Auth{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 12%;
+}
+.loginContainer{
+    height: 40vh;
+    width: 20vw;
+    border: 5px solid black;
+    border-radius: 20px;
+    background-color: #F1AC88;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.loginContainer>h3{
+    font-size: 2rem;
+    align-self: center;
+}
+.inputBoxes{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.names{
+    margin-left: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.names>img{
+    height: 60px;
+    width: 60px;
+} 
+.heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}  
+.heading>h1{
+    font-size: 4rem;
+    padding-top: 40px;
+    padding-left: 20px;
+    color: #783937;
+}
+.heading>h6{
+    font-size: 20px;
+    margin-top: -20px;
+    margin-left: 20px;
+}
+.inputBox{
+    background-color: white;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+}
+.signUpSuggestion{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.signUpSuggestion>span{
+    font-size: 15px;
+}
+.signUpSuggestion>Button{
+    background-color: #783937;
+    color: white;
+    border-radius: 10px;
+}
+.signUpSuggestion>Button:hover{
+    background-color: white;
+    color: #783937;
+    border: 3px solid #783937;
+}
+.textFieldContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: -20px;
+    gap: 0.75rem;
+}
+.lineUpTextBox{
+    display: flex;
+    gap: 1rem;
+}
+.textfield{
+    background-color: white;
+    border-radius: 20px;
+}
+
