@@ -1,10 +1,10 @@
 import './App.css';
 import TopVector from './images/Top Vector.png'
 import BottomVector from './images/Bottom Vector.png'
-import {Routes, Route, Link} from 'react-router-dom'
-import Home from './pages/Home/Home';
-import Profile from './pages/Profile/Profile';
-import Auth from './pages/Auth/Auth';
+import {Routes, Route} from 'react-router-dom'
+import Home from './pages/Home/Home'
+import Profile from './pages/Profile/Profile'
+import Auth from './pages/Auth/Auth'
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
               <Route path='/auth' Component={Auth}/>
           </Routes>
       </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import bodyParser from 'body-parser'
 import Connection from './Connection/Connection.js'
 import AuthRoutes from './Routes/AuthRoute.js'
+import UserRoutes from './Routes/UserRoute.js'
 
 dotenv.config()
 const app = express()
@@ -19,3 +20,4 @@ app.listen(port, ()=>{
 Connection()
 
 app.use('/auth/', AuthRoutes)
+app.use('/users/', UserRoutes)
