@@ -4,6 +4,8 @@ import Logo from '../../images/Logo.png'
 import { Button, TextField } from '@mui/material'
 
 const Auth = () => {
+
+    // This is the SignUp Function
     function SignUp() {
         return(
             <div className='loginContainer'>
@@ -30,6 +32,8 @@ const Auth = () => {
             </div>
         )
     }
+
+    // This is the login Function
     function Login() {
         return(
             <div className='loginContainer'>
