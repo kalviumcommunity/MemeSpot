@@ -4,6 +4,7 @@ import bodyParser from 'body-parser'
 import Connection from './Connection/Connection.js'
 import AuthRoutes from './Routes/AuthRoute.js'
 import UserRoutes from './Routes/UserRoute.js'
+import PostRoutes from './Routes/PostRoute.js'
 
 dotenv.config()
 const app = express()
@@ -21,3 +22,4 @@ Connection()
 
 app.use('/auth/', AuthRoutes)
 app.use('/users/', UserRoutes)
+app.use('/post/', PostRoutes)
