@@ -79,3 +79,32 @@ export const followUser = async(req, res) => {
         }
     }
 }
+
+
+//UnFollow a User 
+export const unFollowUser = async(req, res) => {
+    const id = req.params.id
+
+    const {currentUserId} = req.body
+
+    if(id === currentUserId){
+        res.status(403).json("You cannot unFollow yourself, Baka 😏")
+    } else {
+        try {
+            const followUser = await UserModel.findById(id)
+            const followingUser = await UserModel.findById(currentUserId)
+
+            if(followUser.followers.includes(currentUserId)){
+                await followUser.followers.pull(currentUserId)
+                await followingUser.following.pull(id)
+                await followUser.save()
+                await followingUser.save()
+                res.status(200).json("User UnFollowed !")
+            } else {
+                res.status(403).json("First Follow the User, Baka 😏")
+            }
+        } catch (error) {
+            res.status(404).json({Message: error.message})
+        }
+    }
+}
