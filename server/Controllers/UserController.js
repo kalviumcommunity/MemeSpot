@@ -17,6 +17,7 @@ export const getUser = async(req, res) => {
     }
 }
 
+// update a User
 export const updateUser = async(req, res) => {
     const id = req.params.id
     const {currentUserId, currentUserAdminStatus, password} = req.body
@@ -26,7 +27,84 @@ export const updateUser = async(req, res) => {
             const user = await UserModel.findByIdAndUpdate(id, req.body, {new: true})
             res.status(200).json(user)
         } catch (error) {
+            res.status(403).json({Message: error.message})
+        }
+    } else {
+        res.status(404).json("Access Denied! you can only update your own profile.")
+    }
+}
+
+//delete a User
+export const deleteUser = async(req, res) => {
+    const id = req.params.id
+
+    const {currentUserId, currentUserAdminStatus} = req.body
+
+    if(id === currentUserId || currentUserAdminStatus){
+        try {
+            const user = await UserModel.findByIdAndDelete(id)
+            res.status(200).json("User Deleted Successfully")
+        } catch (error) {
             res.status(500).json({Message: error.message})
+        }
+    } else {
+        res.status(404).json('Access Denied ! You can only delete your own profile. ')
+    }
+}
+
+//follow User 
+export const followUser = async(req, res) => {
+    const id = req.params.id
+
+    const {currentUserId} = req.body
+
+    if(id === currentUserId){
+        res.status(403).json("You can't follow yourself, Baka 😏")
+    } else {
+        try {
+            const followUser = await UserModel.findById(id)
+            const followingUser = await UserModel.findById(currentUserId)
+
+            if(!followUser.followers.includes(currentUserId)){
+                await followUser.followers.push(currentUserId)
+                await followingUser.following.push(id)
+                await followUser.save()
+                await followingUser.save()
+                res.status(200).json("User Followed !")
+            } else {
+                res.status(403).json("You are already following that User, Baka 😏")
+            }
+        } catch (error) {
+            res.status(500).json({Message: error.message})
+        }
+    }
+}
+
+
+//UnFollow a User 
+export const unFollowUser = async(req, res) => {
+    const id = req.params.id
+
+    const {currentUserId} = req.body
+
+    if(id === currentUserId){
+        res.status(403).json("You cannot unFollow yourself, Baka 😏")
+    } else {
+        try {
+            const followUser = await UserModel.findById(id)
+            const followingUser = await UserModel.findById(currentUserId)
+
+            if(followUser.followers.includes(currentUserId)){
+                await followUser.followers.pull(currentUserId)
+                await followingUser.following.pull(id)
+                await followUser.save()
+                await followingUser.save()
+                res.status(200).json("User UnFollowed !")
+            } else {
+                res.status(403).json("First Follow the User, Baka 😏")
+            }
+        } catch (error) {
+            res.status(404).json({Message: error.message})
         }
     }
 }
