@@ -23,6 +23,7 @@
     padding-right: 2rem;
     gap: 10rem;
 }
-.profileCenter{
-
+.pageLoader{
+    margin: auto;
+    margin-top: 20%;
 }
