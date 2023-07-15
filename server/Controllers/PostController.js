@@ -11,3 +11,16 @@ export const createPost = async(req, res) => {
         res.status(500).json({Message: error.message})
     }
 }
+
+//Get a Post 
+export const getPost = async(req, res) => {
+    const id = req.params.id
+
+    try {
+        const post = await PostModel.findById(id)
+        res.status(200).json(getPost)
+    } catch (error) {
+        res.status(500).json({Message: error.message})
+    }
+    
+}
