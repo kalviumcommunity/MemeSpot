@@ -76,6 +76,10 @@ export const likePost = async(req, res) => {
             await post.likes.push(userId)
             await post.save()
             res.status(200).json("Post Liked !")
+        } else {
+            await post.likes.pull(userId)
+            await post.save()
+            res.status(200).json("Post Disliked !")
         }
     } catch (error) {
         res.status(500).json({Message: error.message})
