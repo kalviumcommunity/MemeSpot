@@ -97,7 +97,7 @@ export const getTimelinePost = async(req, res) => {
             {
                 $match: {
                     _id: new mongoose.Types.ObjectId(userId)
-                }
+                } 
             },
             {
                 $lookup: {
