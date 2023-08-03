@@ -5,6 +5,33 @@ import { Button, TextField } from '@mui/material'
 
 const Auth = () => {
     const [isSignUp, setIsSignUp] = useState(false)
+    const [data, setData] = useState({firstName: "", lastName: "", password: "", confirmPassword: "", userName: ""})
+    const [confirmPassword, setConfirmPassword] = useState(true)
+
+    const handleChange = (e) => {
+        setData({...data, [e.target.name]: e.target.value})
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        if(isSignUp){
+            if(data.password !== data.confirmPassword){
+                setConfirmPassword(false)
+            }
+        }
+    }
+
+    const resetForm = (e) => {
+        setConfirmPassword(true)
+        setData({
+            firstName: "",
+            lastName: "",
+            password: "",
+            confirmPassword: "",
+            userName: ""
+        })
+    }
 
 return (
     <div className='Auth'>
@@ -16,25 +43,28 @@ return (
                         {isSignUp &&
                         
                         <div className='lineUpTextBox'>
-                            <TextField variant='filled' label='FirstName' className='textfield'/>
-                            <TextField variant='filled' label='LastName' className='textfield'/>
+                            <TextField variant='filled' label='FirstName' name='firstName' value={data.firstName} className='textfield' onChange={handleChange}/>
+                            <TextField variant='filled' label='LastName' name='lastName' value={data.lastName} className='textfield' onChange={handleChange}/>
                         </div>
                         }
-                            <TextField variant='filled' label='UserName' className='textfield'/>
+                            <TextField variant='filled' label='UserName' name='userName' value={data.userName} className='textfield' onChange={handleChange}/>
                         <div className='lineUpTextBox'>
-                            <TextField variant='filled' label='Password' className='textfield' type='password'/>
+                            <TextField variant='filled' label='Password' name='password' value={data.password} className='textfield' type='password' onChange={handleChange}/>
 
                             {isSignUp &&
-                            <TextField variant='filled' label='Confirm Password' className='textfield' type='password'/>
+                            <TextField variant='filled' label='Confirm Password' name='confirmPassword' value={data.confirmPassword} className='textfield' type='password' onChange={handleChange}/>
                             }
                         </div>
+                        <span style={{display: confirmPassword ? "none" : "block", color: "red", fontSize: '12px', alignSelf: 'flex-end'}}>
+                            *Confirm Password is not same
+                        </span>
                     </div>
 
                     <div className='signUpSuggestion'>
-                        <span onClick={()=>{setIsSignUp((prev)=>!prev)}} style={{cursor: 'pointer'}}>
+                        <span onClick={()=>{setIsSignUp((prev)=>!prev); resetForm()}} style={{cursor: 'pointer'}}>
                             {isSignUp ? "Already have an account ? Login" : "Don't have an account ? SignUp"}
                         </span>
-                        <Button className='loginButton'>{isSignUp ? "SignUp" : "Login"}</Button>
+                        <Button className='loginButton' onClick={handleSubmit}>{isSignUp ? "SignUp" : "Login"}</Button>
                     </div>
                 </div>
 
