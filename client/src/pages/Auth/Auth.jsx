@@ -2,10 +2,19 @@ import React, {useState} from 'react'
 import './Auth.css'
 import Logo from '../../images/Logo.png'
 import { Button, TextField } from '@mui/material'
+import { useDispatch } from 'react-redux'
+import { logIn } from '../../actions/AuthAction'
+import { signUp } from '../../api/AuthRequest'
 
 const Auth = () => {
     const [isSignUp, setIsSignUp] = useState(false)
-    const [data, setData] = useState({firstName: "", lastName: "", password: "", confirmPassword: "", userName: ""})
+    const dispatch = useDispatch()
+    const [data, setData] = useState({
+        firstName: "", 
+        lastName: "", 
+        password: "", 
+        confirmPassword: "", 
+        userName: ""})
     const [confirmPassword, setConfirmPassword] = useState(true)
 
     const handleChange = (e) => {
@@ -16,9 +25,9 @@ const Auth = () => {
         e.preventDefault()
 
         if(isSignUp){
-            if(data.password !== data.confirmPassword){
-                setConfirmPassword(false)
-            }
+            data.password === data.confirmPassword ? dispatch(signUp(data)) : setConfirmPassword(false)
+        } else {
+            dispatch(logIn(data))
         }
     }
 
