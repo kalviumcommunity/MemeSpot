@@ -1,62 +1,84 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Auth.css'
 import Logo from '../../images/Logo.png'
 import { Button, TextField } from '@mui/material'
+import { useDispatch } from 'react-redux'
+import { logIn } from '../../actions/AuthAction'
+import { signUp } from '../../api/AuthRequest'
 
 const Auth = () => {
+    const [isSignUp, setIsSignUp] = useState(false)
+    const dispatch = useDispatch()
+    const [data, setData] = useState({
+        firstName: "", 
+        lastName: "", 
+        password: "", 
+        confirmPassword: "", 
+        userName: ""})
+    const [confirmPassword, setConfirmPassword] = useState(true)
 
-    // This is the SignUp Function
-    function SignUp() {
-        return(
-            <div className='loginContainer'>
-                <h3>SignUp</h3>
-
-                <div className='textFieldContainer'>
-                    <div className='lineUpTextBox'>
-                        <TextField variant='filled' label='FirstName' className='textfield'/>
-                        <TextField variant='filled' label='LastName' className='textfield'/>
-                    </div>
-                        <TextField variant='filled' label='UserName' className='textfield'/>
-                    <div className='lineUpTextBox'>
-                        <TextField variant='filled' label='Password' className='textfield' type='password'/>
-                        <TextField variant='filled' label='Confirm Password' className='textfield' type='password'/>
-                    </div>
-                </div>
-
-                <div className='signUpSuggestion'>
-                    <span>
-                        Already have an account ? Login
-                    </span>
-                    <Button className='loginButton'>SignUp</Button>
-                </div>
-            </div>
-        )
+    const handleChange = (e) => {
+        setData({...data, [e.target.name]: e.target.value})
     }
 
-    // This is the login Function
-    function Login() {
-        return(
-            <div className='loginContainer'>
-                <h3>Login</h3>
+    const handleSubmit = (e) => {
+        e.preventDefault()
 
-                <div className='inputBoxes'>
-                    <TextField variant='filled' label='Username' className='inputBox'/>
-                    <TextField variant='filled' label='Password' className='inputBox' type='password'/>
-                </div>
-
-                <div className='signUpSuggestion'>
-                    <span>
-                        Don't have an account ? SignUp. 
-                    </span>
-                    <Button className='loginButton'>Login</Button>
-                </div>
-            </div>
-        )
+        if(isSignUp){
+            data.password === data.confirmPassword ? dispatch(signUp(data)) : setConfirmPassword(false)
+        } else {
+            dispatch(logIn(data))
+        }
     }
+
+    const resetForm = (e) => {
+        setConfirmPassword(true)
+        setData({
+            firstName: "",
+            lastName: "",
+            password: "",
+            confirmPassword: "",
+            userName: ""
+        })
+    }
+
 return (
     <div className='Auth'>
-        <Login/>
-        {/* <SignUp/> */}
+        <div className='loginContainer'>
+                <h3>{isSignUp ? "SignUp" : "Login"}</h3>
+
+                <div>
+                    <div className='textFieldContainer'>
+                        {isSignUp &&
+                        
+                        <div className='lineUpTextBox'>
+                            <TextField variant='filled' label='FirstName' name='firstName' value={data.firstName} className='textfield' onChange={handleChange}/>
+                            <TextField variant='filled' label='LastName' name='lastName' value={data.lastName} className='textfield' onChange={handleChange}/>
+                        </div>
+                        }
+                            <TextField variant='filled' label='UserName' name='userName' value={data.userName} className='textfield' onChange={handleChange}/>
+                        <div className='lineUpTextBox'>
+                            <TextField variant='filled' label='Password' name='password' value={data.password} className='textfield' type='password' onChange={handleChange}/>
+
+                            {isSignUp &&
+                            <TextField variant='filled' label='Confirm Password' name='confirmPassword' value={data.confirmPassword} className='textfield' type='password' onChange={handleChange}/>
+                            }
+                        </div>
+                        <span style={{display: confirmPassword ? "none" : "block", color: "red", fontSize: '12px', alignSelf: 'flex-end'}}>
+                            *Confirm Password is not same
+                        </span>
+                    </div>
+
+                    <div className='signUpSuggestion'>
+                        <span onClick={()=>{setIsSignUp((prev)=>!prev); resetForm()}} style={{cursor: 'pointer'}}>
+                            {isSignUp ? "Already have an account ? Login" : "Don't have an account ? SignUp"}
+                        </span>
+                        <Button className='loginButton' onClick={handleSubmit}>{isSignUp ? "SignUp" : "Login"}</Button>
+                    </div>
+                </div>
+
+            </div>
+
         <div className='names'>
             <img src={Logo} alt="Logo" />
             <div className='heading'>

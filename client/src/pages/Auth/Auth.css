@@ -5,7 +5,7 @@
     padding-top: 12%;
 }
 .loginContainer{
-    height: 40vh;
+    height: 43vh;
     width: 20vw;
     border: 5px solid black;
     border-radius: 20px;
@@ -89,5 +89,6 @@
 .textfield{
     background-color: white;
     border-radius: 20px;
+    width: 100%;
 }
 
