@@ -5,7 +5,7 @@ import Connection from './Connection/Connection.js'
 import AuthRoutes from './Routes/AuthRoute.js'
 import UserRoutes from './Routes/UserRoute.js'
 import PostRoutes from './Routes/PostRoute.js'
-import ChatRoutes from './Routes/ChatRoute.js'
+// import ChatRoutes from './Routes/ChatRoute.js'
 import cors from 'cors'
 
 dotenv.config()
@@ -26,4 +26,4 @@ Connection()
 app.use('/auth/', AuthRoutes)
 app.use('/users/', UserRoutes)
 app.use('/post/', PostRoutes)
-app.use('/chat', ChatRoutes)
+// app.use('/chat', ChatRoutes)
