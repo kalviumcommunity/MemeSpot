@@ -20,6 +20,7 @@ export const registerUser = async(req, res) => {
         lastName
     })
 
+
     try {
         await newUser.save()
         res.status(200).json(newUser)
