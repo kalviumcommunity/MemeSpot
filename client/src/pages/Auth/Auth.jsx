@@ -5,10 +5,12 @@ import Logo from '../../images/Logo.png'
 import { Button, TextField } from '@mui/material'
 import { signUp } from '../../Redux/authRequest'
 import { logIn } from '../../Redux/authRequest'
+import { useNavigate } from 'react-router-dom'
 
 const Auth = () => {
     const [isSignUp, setIsSignUp] = useState(true)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [data, setData] = useState({
         firstName: "", 
         lastName: "", 
@@ -26,8 +28,10 @@ const Auth = () => {
         console.log("data: ", data);
             if(isSignUp){
                 data.password === data.confirmPassword ? signUp(data , dispatch ) : setConfirmPassword(false)
+                navigate('/home')
             } else {
                 logIn(data, dispatch)
+                navigate('/home')
             }
     }
 

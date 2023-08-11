@@ -8,6 +8,7 @@ import {reducers} from './index'
 const store = configureStore({
     reducer: reducers,
     middleware: applyMiddleware[thunk]
+
 })
 
 export default store
