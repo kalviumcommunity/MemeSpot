@@ -17,6 +17,9 @@ const PostShare = () => {
     console.log('Working till this point')
   }
   
+  const removeImage = () => {
+    setImageOpened(null)
+  }
   return (
     <div className='postShare'>
       <div style={{fontSize: 20}}>
@@ -32,12 +35,14 @@ const PostShare = () => {
             type="text" 
             name='myImage'
             ref={imageRef}
-            onChange={handleChange}/>
+            onChange={handleChange}
+            accept='image/*'/>
         </div>
       </div>
       {image && (
         <div className="previewImage">
-          <UilTimes/>
+          <img src={image} alt="Preview"/>
+          <UilTimes onClick={removeImage}/>
         </div>
       )
       } 

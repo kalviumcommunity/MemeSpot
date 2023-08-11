@@ -1,34 +1,38 @@
 import React, {useState} from 'react'
 import './Auth.css'
+import {useDispatch} from 'react-redux'
 import Logo from '../../images/Logo.png'
 import { Button, TextField } from '@mui/material'
-import { useDispatch } from 'react-redux'
-import { logIn } from '../../actions/AuthAction'
-import { signUp } from '../../api/AuthRequest'
+import { signUp } from '../../Redux/authRequest'
+import { logIn } from '../../Redux/authRequest'
+import { useNavigate } from 'react-router-dom'
 
 const Auth = () => {
-    const [isSignUp, setIsSignUp] = useState(false)
+    const [isSignUp, setIsSignUp] = useState(true)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [data, setData] = useState({
         firstName: "", 
         lastName: "", 
         password: "", 
         confirmPassword: "", 
-        userName: ""})
+        username: ""})
     const [confirmPassword, setConfirmPassword] = useState(true)
-
+        
     const handleChange = (e) => {
         setData({...data, [e.target.name]: e.target.value})
     }
-
+    
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        if(isSignUp){
-            data.password === data.confirmPassword ? dispatch(signUp(data)) : setConfirmPassword(false)
-        } else {
-            dispatch(logIn(data))
-        }
+        console.log("data: ", data);
+            if(isSignUp){
+                data.password === data.confirmPassword ? signUp(data , dispatch ) : setConfirmPassword(false)
+                navigate('/home')
+            } else {
+                logIn(data, dispatch)
+                navigate('/home')
+            }
     }
 
     const resetForm = (e) => {
@@ -38,7 +42,9 @@ const Auth = () => {
             lastName: "",
             password: "",
             confirmPassword: "",
-            userName: ""
+            username: ""
+            
+            
         })
     }
 
@@ -56,7 +62,7 @@ return (
                             <TextField variant='filled' label='LastName' name='lastName' value={data.lastName} className='textfield' onChange={handleChange}/>
                         </div>
                         }
-                            <TextField variant='filled' label='UserName' name='userName' value={data.userName} className='textfield' onChange={handleChange}/>
+                            <TextField variant='filled' label='Username' name='username' value={data.username} className='textfield' onChange={handleChange}/>
                         <div className='lineUpTextBox'>
                             <TextField variant='filled' label='Password' name='password' value={data.password} className='textfield' type='password' onChange={handleChange}/>
 
